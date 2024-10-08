@@ -1,1 +1,1 @@
-# IRAG-Short-Docs-with-IMPROVE-RAG
+# IRAG - Short Document with IMPROVE RAG
