@@ -38,6 +38,7 @@ Project นี้เริ่มต้นจากความพยายาม
 ## Model
 <br>
 พอดีว่า Project นี้ใช้ GCP ทำให้มี Claude ให้ใช้และมีใน Langchain พอดี เลยเลือกใช้ตัวนี้ <br>
+
 ```python
 project = "<project>"
 location = "<location>"
@@ -50,7 +51,8 @@ llm = ChatAnthropicVertex(
     max_tokens=6046,
     timeout=None,
 )
-```` <br>
+``` <br>
+
 หรือว่าจะใช้ตัว GPT ก็ได้
 `
 `
