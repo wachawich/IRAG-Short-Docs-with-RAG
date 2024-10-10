@@ -97,7 +97,8 @@ doc_embeddings = model.encode(documents)
 ```
 <br>
 <br>
+
 ## Step
 1. Create Vector Store ตาม code CreateVectorStore/... <br>
-2. นำทั้ง PDF และ CSV มารวมกันที่ MergeVectorStore
-3. อ่าน MergeVectorStore.md
+2. นำทั้ง PDF และ CSV มารวมกันที่ MergeVectorStore <br>
+3. อ่าน MergeVectorStore.md <br>
