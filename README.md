@@ -13,19 +13,19 @@ Project นี้เริ่มต้นจากความพยายาม
 4. สามารถ Merge ระหว่าง PDF และ CSV และ Search ได้อย่างมีประสิทธิภาพมากๆ
 
 ## Find Problem
-1. PDF document
+1. PDF document <br>
   1.1 Extract text from PDF ค่อนข้างมีปัญหา
       Text มีอาการขาดหาย ตัวสระมีเว้นช่องว่าง <br>
      ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/R2.png)
-  1.2 พบปัญหาและประสิทธิภาพของ Chunk size 
+  1.2 พบปัญหาและประสิทธิภาพของ Chunk size <br>
       เนื่องจากแต่ละ Docs ความยาวประโยคไม่เหมือนกัน ทำให้มีปัญหาในการเลือก Chunk size และถึง Chunk size จะเท่ากันก็ตาม แต่ประสิทธิภาพในการค้นหาก็ไม่เท่ากัน <br>
      ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/R1.png)
    
-2. CSV document
-   2.1 Loss Columns of CSV Data
+2. CSV document <br>
+   2.1 Loss Columns of CSV Data <br>
      คือการที่บาง Vector Store จัดเก็บแค่ Text ของ Rows ไม่ได้มี Attribute ที่เป็นส่วนคัญมากๆ ของ Structure Data ก็คือ ใน 1 Chunk อาจจะเป็น 3 row ครึ่ง หรือ 2.75 row ย้ำว่าใน 1 Chunk ซึ่ง LLM ก็จะได้อ่าน Garbage
      ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/losscolumn.png)
-   2.2 Misunderstand
+   2.2 Misunderstand <br>
      เนื่องจากมีการศูนย์เสีย Attribute ที่เป็นส่วนคัญมากๆไป ทำให้มีแต่เนื้อหา อย่างเช่นตัวอย่างนี้ LLM อาจจะเข้าใจว่ามันคือ model ตระกูล Transformer ที่ชื่อ Wachawich แต่จริงๆแล้วมันคือชื่อจริง ชื่อเล่น และหนังที่ชอบ!!!
      ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/misunderstand.png)
 
