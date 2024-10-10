@@ -29,8 +29,28 @@ Project นี้เริ่มต้นจากความพยายาม
      &nbsp;&nbsp;&nbsp;&nbsp;เนื่องจากมีการศูนย์เสีย Attribute ที่เป็นส่วนคัญมากๆไป ทำให้มีแต่เนื้อหา อย่างเช่นตัวอย่างนี้ LLM อาจจะเข้าใจว่ามันคือ model ตระกูล Transformer ที่ชื่อ Wachawich แต่จริงๆแล้วมันคือชื่อจริง ชื่อเล่น และหนังที่ชอบ!!!
      ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/misunderstand.png) <br>
 
-## Solution
+## Pipeline
 1. PDF <br>
   ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/PPDF.png)
 2. CSV <br>
  ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/CSVV.png)
+
+## Model
+<br>
+พอดีว่า Project นี้ใช้ GCP ทำให้มี Claude ให้ใช้และมีใน Langchain พอดี เลยเลือกใช้ตัวนี้ <br>
+```python
+project = "<project>"
+location = "<location>"
+
+llm = ChatAnthropicVertex(
+    model_name="claude-3-5-sonnet@20240620",
+    project=project,
+    location=location,
+    temperature=0.1,
+    max_tokens=6046,
+    timeout=None,
+)
+```` <br>
+หรือว่าจะใช้ตัว GPT ก็ได้
+`
+`
