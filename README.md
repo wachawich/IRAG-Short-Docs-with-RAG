@@ -55,6 +55,7 @@ llm = ChatAnthropicVertex(
 <br>
 หรือว่าจะใช้ตัว GPT ก็ได้
 <br>
+
 ```python
 import getpass
 import os
@@ -69,7 +70,7 @@ llm = ChatOpenAI(
     max_tokens=6046,
     timeout=None,
 )
-
+```
 ### Embedding Model
 ```python
 import key_param as key_param
@@ -88,6 +89,7 @@ def get_embedding(text, model="text-embedding-3-small"):
 <br>
 หรือว่าจะใช้ตัวอื่นก็ได้ เช่น
 <br>
+
 ```python
 from sentence_transformers import SentenceTransformer
 
