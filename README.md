@@ -1,7 +1,36 @@
 # IRAG - Short Document with IMPROVE RAG
 
 ## Abstract
-This project was initiated from our attempt to implement Retrieval-Augmented Generation (RAG) for general QA with documents.
-However, it couldn’t be done effectively due to the large volume and complexity of the data, which rendered a regular RAG approach insufficient. 
-This project is specifically designed to work well with short documents, as the task involves shorter documents, making this method highly efficient. 
-That's why this project was developed.
+Project นี้เริ่มต้นจากความพยายามของเราที่จะนำการสร้างข้อความด้วยการดึงข้อมูล (Retrieval-Augmented Generation หรือ RAG) มาใช้สำหรับระบบถามตอบทั่วไปที่เกี่ยวข้องกับเอกสาร 
+อย่างไรก็ตาม เราไม่สามารถทำได้อย่างมีประสิทธิภาพเนื่องจากปริมาณข้อมูลที่มากและซับซ้อน ทำให้วิธีการ RAG แบบปกติไม่เพียงพอ Project นี้ได้รับการออกแบบมาเพื่อให้ทำงานได้ดีโดยเฉพาะกับเอกสารที่มีขนาดสั้น
+เนื่องจากงานนี้เกี่ยวข้องกับเอกสารที่สั้นกว่า ทำให้วิธีการนี้มีประสิทธิภาพมากขึ้น นี่คือเหตุผลที่พัฒนาโครงการนี้ขึ้นมา <br>
+
+ซึ่งจะเน้นไปที่การสร้าง Vector Store โดยสร้างเอง ซึ่งจะเก็บในรูปแบบ CSV ซึ่งจะเก็บข้อมูลต่างๆผ่าน CSV โดยจะแยก Columns ว่าเป็น Content หรือ Embedding เพื่อให้สามารถ Search ได้
+ซึ่งที่ผ่านมายังไม่พบข้อเสีย แต่ข้อดีหลักๆคือ <br>
+1. เก็บผ่าน Local ได้
+2. ไม่ต้องหา Lib ที่เหมาะกับงาน
+3. ปรับแต่งได้ทุกจุด
+4. สามารถ Merge ระหว่าง PDF และ CSV และ Search ได้อย่างมีประสิทธิภาพมากๆ
+
+## Find Problem
+1. PDF document <br>
+  1.1 Extract text from PDF ค่อนข้างมีปัญหา
+          Text มีอาการขาดหาย ตัวสระมีเว้นช่องว่าง <br>
+     ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/R2.png) <br>
+  1.2 พบปัญหาและประสิทธิภาพของ Chunk size <br>
+          เนื่องจากแต่ละ Docs ความยาวประโยคไม่เหมือนกัน ทำให้มีปัญหาในการเลือก Chunk size และถึง Chunk size จะเท่ากันก็ตาม แต่ประสิทธิภาพในการค้นหาก็ไม่เท่ากัน <br>
+     ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/R1.png) <br>
+   
+2. CSV document <br>
+   2.1 Loss Columns of CSV Data <br>
+         คือการที่บาง Vector Store จัดเก็บแค่ Text ของ Rows ไม่ได้มี Attribute ที่เป็นส่วนคัญมากๆ ของ Structure Data ก็คือ ใน 1 Chunk อาจจะเป็น 3 row ครึ่ง หรือ 2.75 row ย้ำว่าใน 1 Chunk ซึ่ง LLM ก็จะได้อ่าน Garbage 
+     ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/losscolumn.png) <br>
+   2.2 Misunderstand <br>
+         เนื่องจากมีการศูนย์เสีย Attribute ที่เป็นส่วนคัญมากๆไป ทำให้มีแต่เนื้อหา อย่างเช่นตัวอย่างนี้ LLM อาจจะเข้าใจว่ามันคือ model ตระกูล Transformer ที่ชื่อ Wachawich แต่จริงๆแล้วมันคือชื่อจริง ชื่อเล่น และหนังที่ชอบ!!!
+     ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/misunderstand.png) <br>
+
+## Solution
+1. PDF <br>
+  ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/PPDF.png)
+2. CSV <br>
+ ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/CSVV.png)
