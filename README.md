@@ -15,18 +15,18 @@ Project นี้เริ่มต้นจากความพยายาม
 ## Find Problem
 1. PDF document <br>
   1.1 Extract text from PDF ค่อนข้างมีปัญหา
-          Text มีอาการขาดหาย ตัวสระมีเว้นช่องว่าง <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Text มีอาการขาดหาย ตัวสระมีเว้นช่องว่าง <br>
      ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/R2.png) <br>
   1.2 พบปัญหาและประสิทธิภาพของ Chunk size <br>
-          เนื่องจากแต่ละ Docs ความยาวประโยคไม่เหมือนกัน ทำให้มีปัญหาในการเลือก Chunk size และถึง Chunk size จะเท่ากันก็ตาม แต่ประสิทธิภาพในการค้นหาก็ไม่เท่ากัน <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;เนื่องจากแต่ละ Docs ความยาวประโยคไม่เหมือนกัน ทำให้มีปัญหาในการเลือก Chunk size และถึง Chunk size จะเท่ากันก็ตาม แต่ประสิทธิภาพในการค้นหาก็ไม่เท่ากัน <br>
      ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/R1.png) <br>
    
 2. CSV document <br>
    2.1 Loss Columns of CSV Data <br>
-         คือการที่บาง Vector Store จัดเก็บแค่ Text ของ Rows ไม่ได้มี Attribute ที่เป็นส่วนคัญมากๆ ของ Structure Data ก็คือ ใน 1 Chunk อาจจะเป็น 3 row ครึ่ง หรือ 2.75 row ย้ำว่าใน 1 Chunk ซึ่ง LLM ก็จะได้อ่าน Garbage 
+      &nbsp;&nbsp;&nbsp;&nbsp;คือการที่บาง Vector Store จัดเก็บแค่ Text ของ Rows ไม่ได้มี Attribute ที่เป็นส่วนคัญมากๆ ของ Structure Data ก็คือ ใน 1 Chunk อาจจะเป็น 3 row ครึ่ง หรือ 2.75 row ย้ำว่าใน 1 Chunk ซึ่ง LLM ก็จะได้อ่าน Garbage 
      ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/losscolumn.png) <br>
    2.2 Misunderstand <br>
-         เนื่องจากมีการศูนย์เสีย Attribute ที่เป็นส่วนคัญมากๆไป ทำให้มีแต่เนื้อหา อย่างเช่นตัวอย่างนี้ LLM อาจจะเข้าใจว่ามันคือ model ตระกูล Transformer ที่ชื่อ Wachawich แต่จริงๆแล้วมันคือชื่อจริง ชื่อเล่น และหนังที่ชอบ!!!
+      &nbsp;&nbsp;&nbsp;&nbsp;เนื่องจากมีการศูนย์เสีย Attribute ที่เป็นส่วนคัญมากๆไป ทำให้มีแต่เนื้อหา อย่างเช่นตัวอย่างนี้ LLM อาจจะเข้าใจว่ามันคือ model ตระกูล Transformer ที่ชื่อ Wachawich แต่จริงๆแล้วมันคือชื่อจริง ชื่อเล่น และหนังที่ชอบ!!!
      ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/misunderstand.png) <br>
 
 ## Solution
