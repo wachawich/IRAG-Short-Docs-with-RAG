@@ -35,10 +35,10 @@ Project นี้เริ่มต้นจากความพยายาม
 2. CSV <br>
  ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/CSVV.png)
 
-## Model
-<br>
+## Tech
+### Model
 พอดีว่า Project นี้ใช้ GCP ทำให้มี Claude ให้ใช้และมีใน Langchain พอดี เลยเลือกใช้ตัวนี้ <br>
-
+<br>
 ```python
 project = "<project>"
 location = "<location>"
@@ -50,9 +50,47 @@ llm = ChatAnthropicVertex(
     temperature=0.1,
     max_tokens=6046,
     timeout=None,
-)
-``` <br>
-
+) 
+```
+<br>
 หรือว่าจะใช้ตัว GPT ก็ได้
-`
-`
+<br>
+```python
+import getpass
+import os
+from langchain_openai import ChatOpenAI
+
+if not os.environ.get("OPENAI_API_KEY"):
+    os.environ["OPENAI_API_KEY"] = getpass.getpass("Enter your OpenAI API key: ")
+
+llm = ChatOpenAI(
+    model="gpt-4o",
+    temperature=0.1,
+    max_tokens=6046,
+    timeout=None,
+)
+
+### Embedding Model
+```python
+import key_param as key_param
+import os
+from openai import OpenAI
+
+os.environ["OPENAI_API_KEY"] = key_param.OPENAI_API_KEY
+client = OpenAI()
+
+def get_embedding(text, model="text-embedding-3-small"):
+   text = str(text)
+   text = text.replace("\n", " ")
+   
+   return client.embeddings.create(input = [text], model=model).data[0].embedding
+```
+<br>
+หรือว่าจะใช้ตัวอื่นก็ได้ เช่น
+<br>
+```python
+from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer('all-MiniLM-L6-v2')
+doc_embeddings = model.encode(documents)
+```
