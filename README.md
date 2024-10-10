@@ -18,7 +18,7 @@ Project นี้เริ่มต้นจากความพยายาม
       &nbsp;&nbsp;&nbsp;&nbsp;Text มีอาการขาดหาย ตัวสระมีเว้นช่องว่าง <br>
      ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/R2.png) <br>
   1.2 พบปัญหาและประสิทธิภาพของ Chunk size <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;เนื่องจากแต่ละ Docs ความยาวประโยคไม่เหมือนกัน ทำให้มีปัญหาในการเลือก Chunk size และถึง Chunk size จะเท่ากันก็ตาม แต่ประสิทธิภาพในการค้นหาก็ไม่เท่ากัน <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;เนื่องจากแต่ละ Docs ความยาวประโยคไม่เหมือนกัน ทำให้มีปัญหาในการเลือก Chunk size และถึง Chunk size จะเท่ากันก็ตาม แต่ประสิทธิภาพในการค้นหาก็ไม่เท่ากัน จะเห็นได้ว่า ถ้า chunk size น้อย อาจจะไม่ได้อ่าน Docs ที่มีคุณภาพมากนัก อีกทั้งต้องมาหาว่าต้องใช้ chunk เท่าไหร่ดี แต่ว่าก็ค่อนข้างมีปัญหา<br>
      ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/R1.png) <br>
    
 2. CSV document <br>
@@ -38,7 +38,7 @@ Project นี้เริ่มต้นจากความพยายาม
 ## Tech
 ### Model
 พอดีว่า Project นี้ใช้ GCP ทำให้มี Claude ให้ใช้และมีใน Langchain พอดี เลยเลือกใช้ตัวนี้ <br>
-<br>
+
 ```python
 project = "<project>"
 location = "<location>"
@@ -54,7 +54,6 @@ llm = ChatAnthropicVertex(
 ```
 <br>
 หรือว่าจะใช้ตัว GPT ก็ได้
-<br>
 
 ```python
 import getpass
@@ -86,7 +85,7 @@ def get_embedding(text, model="text-embedding-3-small"):
    
    return client.embeddings.create(input = [text], model=model).data[0].embedding
 ```
-<br>
+
 หรือว่าจะใช้ตัวอื่นก็ได้ เช่น
 <br>
 
