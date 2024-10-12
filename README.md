@@ -1,5 +1,6 @@
 # IRAG - Short Document with IMPROVE RAG
 <br>
+
 ![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/402882_Poster.png) <br>
 
 ## Abstract
