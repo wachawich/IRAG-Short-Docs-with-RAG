@@ -1,4 +1,6 @@
 # IRAG - Short Document with IMPROVE RAG
+<br>
+![Exercise](https://github.com/wachawich/IRAG-Short-Docs-with-RAG/blob/main/Image/402882_Poster.png) <br>
 
 ## Abstract
 Project นี้เริ่มต้นจากความพยายามของเราที่จะนำการสร้างข้อความด้วยการดึงข้อมูล (Retrieval-Augmented Generation หรือ RAG) มาใช้สำหรับระบบถามตอบทั่วไปที่เกี่ยวข้องกับเอกสาร 
